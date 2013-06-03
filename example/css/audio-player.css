@@ -1,0 +1,84 @@
+div.audijo-player {
+	background: #333;
+	border: 1px solid #ddd;
+	height: 30px;
+	padding: 2px;
+}
+
+div.audijo-player > div.status {
+	height: inherit;
+	overflow: hidden;
+	position: relative;
+}
+
+div.audijo-player > div.status > div {
+	height: inherit;
+	left: 0;
+	position: absolute;
+	top: 0;
+}
+
+div.audijo-player > div.status > div.buffered {
+	background: #888;
+}
+
+div.audijo-player > div.status > div.played {
+	background: #e44;
+}
+
+div.audijo-player > div.status > div.controller {
+	background: #333;
+	height: 26px;
+	left: 2px;
+	top: 2px;
+	width: 26px;
+}
+
+div.audijo-player > div.status > div.controller {
+	cursor: pointer;
+}
+
+div.audijo-player.paused > div.status > div.controller > div.icon {
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid #e44;
+	border-top: 10px solid transparent;
+	height: 0;
+	margin-left: 8px;
+	margin-top: 3px;
+	width: 0;
+}
+
+div.audijo-player.paused > div.status > div.controller:hover > div.icon {
+	border-left-color: white;
+}
+
+div.audijo-player.playing > div.status > div.controller > div {
+	position: relative;
+}
+
+div.audijo-player.playing > div.status > div.controller > div.icon {
+	background: #e44;
+	border: 5px solid #333;
+	box-sizing: border-box;
+	height: 100%;
+	width: 100%;
+	
+	-webkit-box-sizing: border-box;
+}
+
+div.audijo-player.playing > div.status > div.controller > div.icon:before {
+	background: #333;
+	box-sizing: inherit;
+	content: '';
+	height: 100%;
+	left: 50%;
+	margin-left: -3px;
+	padding: 3px;
+	position: absolute;
+	
+	-webkit-box-sizing: inherit;
+}
+
+div.audijo-player.playing > div.status > div.controller:hover > div.icon {
+	background: white;
+}

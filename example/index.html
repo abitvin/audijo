@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/audio-player.css">
+        <title>Audijo</title>
+    </head>
+    <body>
+        <h1>
+            Audijo Player
+        </h1>
+		<div id="audijo-player"></div>
+		<!--[if lte IE 8]><script src="js/swfobject.js"></script><![endif]-->
+        <script src="js/audijo.min.js"></script>
+		<script src="js/audijo-player.min.js"></script>
+        <script>
+			
+			AudijoPlayer({
+				autoplay: true,
+				src: 'audio.mp3',
+				target: 'audijo-player'
+			});
+
+        </script>
+    </body>
+</html>
