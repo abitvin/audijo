@@ -51,7 +51,7 @@ function Audijo( params )
             swfParams = { allowScriptAccess: 'always' };
 
             swfobject.embedSWF(
-                'swf/audijo.swf', me.id, '50', '50', '9.0.0', false,
+                params.swfLocation || 'swf/audijo.swf', me.id, '50', '50', '9.0.0', false,
                 vars, swfParams, attr, function( e ) { me.swf = e.ref; }
             );
 
@@ -67,9 +67,7 @@ function Audijo( params )
 			me.audio.loop = params.loop;
 			me.audio.preload = preload();
 
-			me.audio.addEventListener( 'canplay', function( e ) { console.log( 'Canplay now!' ); } );
-			
-            document.documentElement.appendChild( me.audio );
+			document.documentElement.appendChild( me.audio );
 
 			fireCallback();
         }
@@ -160,9 +158,7 @@ function Audijo( params )
 	
     function pause()
 	{
-		console.log( 'Paused' );
-		
-        pick( pauseHtml5, pauseSwf );
+		pick( pauseHtml5, pauseSwf );
 	}
 	
 	function pauseHtml5()
@@ -185,8 +181,6 @@ function Audijo( params )
         if( url ) {
 			source( url );
 		}
-		
-		console.log( 'Start playing.' );
 		
 		pick( playHtml5, playSwf );
 	}
