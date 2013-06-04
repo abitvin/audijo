@@ -5,3 +5,4 @@ FIXME
 TODO
 ====
 * Exception handling like: stream not found.
+* Set the location of the audijo.swf
