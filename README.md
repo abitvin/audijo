@@ -1,6 +1,6 @@
 About
 =====
-Audijo is a JavaScript wrapper class around the HTML 5 <audio> tag. When the new <audio> tag is not supported in the browser it falls back to Shockwave Flash.
+Audijo is a JavaScript wrapper class around the HTML 5 audio tag. When the audio tag is not supported in the browser it falls back to Shockwave Flash.
 
 
 Author
