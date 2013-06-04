@@ -5,7 +5,7 @@ Audijo is a JavaScript wrapper class around the HTML 5 <audio> tag. When the new
 
 Author
 ======
-Vincent Van Ingen
+Vincent Van Ingen  
 hi@abitvin.net
 
 
