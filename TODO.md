@@ -5,6 +5,5 @@ FIXME
 TODO
 ====
 * Exception handling like: stream not found.
-* Flash: loop
 * Flash: preload
 * Other native audio functionality needed to be ported to Flash.

@@ -1,6 +1,7 @@
 ﻿package  
 {  
     import flash.display.MovieClip;  
+	import flash.events.Event;
     import flash.external.ExternalInterface;  
 	import flash.media.*;
 	import flash.net.URLRequest;
@@ -23,8 +24,18 @@
 			ExternalInterface.addCallback( "seekAudio", seekAudio );
 			ExternalInterface.addCallback( "source", source );
 			
-			ExternalInterface.call( "Audijo.loaded", this.loaderInfo.parameters.audijoId );
-        } 
+			ExternalInterface.call( "Audijo.loaded", root.loaderInfo.parameters.audijoId );
+        }
+		
+		function onSoundComplete( e:Event ):void
+		{
+			isPlaying = false;
+			position = 0;
+			
+    		if( root.loaderInfo.parameters.loop == "true" ) {
+				playAudio();
+			}
+		}
 		
 		public function buffered():Number
 		{
@@ -67,7 +78,13 @@
 			
 			if( !isPlaying )
 			{
+				if( channel ) {
+					channel.removeEventListener( Event.SOUND_COMPLETE, onSoundComplete );
+				}
+				
 				channel = sound.play( position );
+				channel.addEventListener( Event.SOUND_COMPLETE, onSoundComplete );
+				
 				isPlaying = true;
 			}
 		}

@@ -47,7 +47,7 @@ function Audijo( params )
 			document.documentElement.appendChild( me.swf );
 
             attr = { id: me.id, style: 'position: fixed; top: -100px;' },
-            vars = { audijoId: me.id },
+            vars = { audijoId: me.id, loop: params.loop },
             swfParams = { allowScriptAccess: 'always' };
 
             swfobject.embedSWF(
