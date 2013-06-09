@@ -12,6 +12,7 @@ Constructing
     // Notice no 'new' keyword.
 	var audio = Audijo({
 		autoplay: true,						// Default: false
+		loop: true,							// Default: false
 		returnUnit: 'scalar',				// The default unit returned and used by buffered(),
 											//		duration() and seek(). This can be 'percentage',
 											//		'scalar' or 'seconds'. Default: 'seconds'.
