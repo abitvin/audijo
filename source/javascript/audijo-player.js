@@ -16,7 +16,7 @@ function AudijoPlayer( params )
 	
 	function initAudio()
 	{
-		params.returnUnit = 'percentage';
+		params.returnUnit = 'Percentage';
 		me.audio = Audijo( params );
 	}
 	

@@ -1,7 +1,7 @@
 function Audijo( params )
 {
     var me, pub,
-		Unit = { Percentage: 'percentage', Seconds: 'seconds', Scalar: 'scalar' };
+		Unit = { Percentage: 'Percentage', Seconds: 'Seconds', UnitInterval: 'UnitInterval' };
 	
 	function init()
 	{
@@ -89,19 +89,19 @@ function Audijo( params )
 		pub = {
 			buffered: null,
 			bufferedPercentage: bufferedPercentage,
-			bufferedScalar: bufferedScalar,
 			bufferedSeconds: bufferedSeconds,
+			bufferedUnitInterval: bufferedUnitInterval,
 			played: null,
 			playedPercentage: playedPercentage,
-			playedScalar: playedScalar,
 			playedSeconds: playedSeconds,
+			playedUnitInterval: playedUnitInterval,
 			duration: duration,
 			pause: pause,
 			play: play,
 			seek: null,
 			seekPercentage: seekPercentage,
-			seekScalar: seekScalar,
 			seekSeconds: seekSeconds,
+			seekUnitInterval: seekUnitInterval,
 			source: source
 		};
 		
@@ -112,10 +112,10 @@ function Audijo( params )
 
 	function bufferedPercentage()
 	{
-		return bufferedScalar() * 100;
+		return bufferedUnitInterval() * 100;
 	}
 	
-	function bufferedScalar()
+	function bufferedUnitInterval()
 	{
 		var d = duration();
 		
@@ -199,10 +199,10 @@ function Audijo( params )
 	
 	function playedPercentage()
 	{
-		return playedScalar() * 100;
+		return playedUnitInterval() * 100;
 	}
 	
-	function playedScalar()
+	function playedUnitInterval()
 	{
 		var d = duration();
 		
@@ -240,11 +240,11 @@ function Audijo( params )
 				break;
 			}
 			
-			case Unit.Scalar:
+			case Unit.UnitInterval:
 			{
-				pub.buffered = bufferedScalar;
-				pub.played = playedScalar;
-				pub.seek = seekScalar;
+				pub.buffered = bufferedUnitInterval;
+				pub.played = playedUnitInterval;
+				pub.seek = seekUnitInterval;
 				break;
 			}
 			
@@ -258,17 +258,17 @@ function Audijo( params )
 			
 			default:
 			{
-				throw 'Unit can only be "' + Unit.Seconds + '" or "' + Unit.Scalar + '"';
+				throw 'Unit can only be "' + Unit.Percentage + '", "' + Unit.UnitInterval + '" or "' + Unit.Seconds + '"';
 			}
 		}
 	}
 	
 	function seekPercentage( offset )
 	{
-		seekScalar( offset / 100 );
+		seekUnitInterval( offset / 100 );
 	}
 	
-	function seekScalar( offset )
+	function seekUnitInterval( offset )
 	{
 		seekSeconds( offset * duration() );
 	}
