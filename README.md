@@ -13,9 +13,9 @@ Constructing
 	var audio = Audijo({
 		autoplay: true,						// Default: false
 		loop: true,							// Default: false
-		returnUnit: 'scalar',				// The default unit returned and used by buffered(),
-											//		duration() and seek(). This can be 'percentage',
-											//		'scalar' or 'seconds'. Default: 'seconds'.
+		returnUnit: 'UnitInterval',			// The default unit returned and used by buffered(),
+											//		duration() and seek(). This can be 'Percentage',
+											//		'UnitInterval' or 'Seconds'. Default: 'Seconds'.
 		src: 'path/to/audio.mp3',			// When MP3 is not supported the source
 											//		will be translated to path/to/audio.ogg
 		swfLocation: 'path/to/audijo.swf'	// Default: 'swf/audijo.swf'
@@ -48,23 +48,23 @@ Methods
 Return unit
 -----------
 The following units are available:
-* seconds, the absolute value in seconds.
-* percentage, a value between 0 and 100.
-* scalar, a value between 0 and 1.
+* Seconds, the absolute value in seconds.
+* Percentage, a value between 0 and 100.
+* UnitInterval, a value between 0 and 1.
 
 At the constructor you use `returnUnit` for the default unit used troughout the uses of the Audijo instance. For example when using 'percentage' as unit the `audio.duration()` returns a value between 0 and 100. But in certain situations for example an audio player, you want the duration to be shown in seconds but the bufferbar to be presented by percentage. For these situations there are the following methods calls available.
 
     audio.bufferedPercentage();
-	audio.bufferedScalar();
 	audio.bufferedSeconds();
+	audio.bufferedUnitInterval();
 	
 	audio.durationPercentage();
-	audio.durationScalar();
 	audio.durationSeconds();
+	audio.durationUnitInterval();
 	
 	audio.seekPercentage( value );
-	audio.seekScalar( value );
 	audio.seekSeconds( value );
+	audio.seekUnitInterval( value );
 
 
 Author
